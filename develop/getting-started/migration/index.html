@@ -91,7 +91,7 @@
   
   
   
-  <meta property="article:modified_time" content="2026-06-25T12:15:19">
+  <meta property="article:modified_time" content="2026-07-03T19:26:12">
   
   <script type="application/ld+json">
   {
@@ -106,7 +106,7 @@
     "inLanguage": "en",
     "keywords": "RF-DETR, rfdetr, object detection, instance segmentation, computer vision, Roboflow",
     "datePublished": "2025-03-01",
-    "dateModified": "2026-06-25T12:15:19",
+    "dateModified": "2026-07-03T19:26:12",
     "image": "https://storage.googleapis.com/com-roboflow-marketing/rf-detr/rf_detr_1-4_latency_accuracy_object_detection.png",
     "author": {"@type": "Organization", "name": "Roboflow", "url": "https://roboflow.com"},
     "publisher": {"@type": "Organization", "name": "Roboflow", "url": "https://roboflow.com"},
@@ -195,7 +195,7 @@
       data-md-component="logo"
     >
       
-  <img src="../../assets/roboflow-logo.svg" alt="logo">
+  <img src="../../assets/roboflow-logo.svg" alt="RF-DETR" width="24" height="24">
 
     </a>
 
@@ -224,7 +224,7 @@
             id="item-logo"
             >
             
-  <img src="../../assets/roboflow-logo.svg" alt="logo">
+  <img src="../../assets/roboflow-logo.svg" alt="RF-DETR" width="24" height="24">
 
             </a>
             
@@ -246,7 +246,7 @@
         </label>
 
         <!-- Search interface -->
-        <div class="md-search" data-md-component="search" role="dialog">
+        <div class="md-search" data-md-component="search" role="dialog" aria-modal="true" aria-label="Search">
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
     <form class="md-search__form" name="search">
@@ -284,7 +284,7 @@
 
     <ul class="header-list">
         <li style="align-items: center;" id="resources-list">
-            <label for="dropdown-resources"><span>Resources <img src="https://ka-p.fontawesome.com/releases/v6.6.0/svgs/regular/chevron-down.svg?v=2&token=a463935e93" style="height: 0.5rem;" /></span></label>
+            <label for="dropdown-resources"><span>Resources <span class="header-chevron" aria-hidden="true"></span></span></label>
             <input type="radio" name="dropdown" id="dropdown-resources" style="display: none;" />
             <ul class="resources-sublist sublist">
                 <li><a href="https://blog.roboflow.com">Blog</a></li>
@@ -294,7 +294,7 @@
             </ul>
         </li>
         <li style="align-items: center;" id="products-list">
-            <label for="dropdown-products"><span>Docs <img src="https://ka-p.fontawesome.com/releases/v6.6.0/svgs/regular/chevron-down.svg?v=2&token=a463935e93" style="height: 0.5rem;" /></span></label>
+            <label for="dropdown-products"><span>Docs <span class="header-chevron" aria-hidden="true"></span></span></label>
             <input type="radio" name="dropdown" id="dropdown-products" style="display: none;" />
             <ul class="products-sublist sublist">
                 <li><a href="https://inference.roboflow.com">Inference</a></li>
@@ -305,79 +305,72 @@
                 <li><a href="https://docs.roboflow.com">Roboflow</a></li>
             </ul>
         </li>
-        <script>
-          document.addEventListener('click', function(event) {
-            const resourcesList = document.getElementById('resources-list');
-            const productsList = document.getElementById('products-list');
-            const dropdownResources = document.getElementById('dropdown-resources');
-            const dropdownProducts = document.getElementById('dropdown-products');
-
-            if (!resourcesList.contains(event.target)) {
-              dropdownResources.checked = false;
-            }
-            if (!productsList.contains(event.target)) {
-              dropdownProducts.checked = false;
-            }
-          });
-          // on mouse over
-          document.getElementById('resources-list').addEventListener('mouseover', function() {
-            document.getElementById('dropdown-resources').checked = true;
-          });
-          document.getElementById('products-list').addEventListener('mouseover', function() {
-            document.getElementById('dropdown-products').checked = true;
-          });
-          // on mouse out
-          document.getElementById('resources-list').addEventListener('mouseout', function() {
-            // if not hovering over the sublist or the label, uncheck the dropdown
-            // wait 1 sec
-            setTimeout(function() {
-              if (!document.querySelector('.resources-sublist:hover') && !document.querySelector('#resources-list:hover')) {
-                document.getElementById('dropdown-resources').checked = false;
-              }
-            }, 350);
-          });
-          // if mouseout of sublist, uncheck immediately
-          document.querySelector('.resources-sublist').addEventListener('mouseout', function() {
-            setTimeout(function() {
-              if (!document.querySelector('.resources-sublist:hover') && !document.querySelector('#resources-list:hover')) {
-                document.getElementById('dropdown-resources').checked = false;
-              }
-            }, 450);
-          });
-          document.getElementById('products-list').addEventListener('mouseout', function() {
-            // if not hovering over the sublist, uncheck the dropdown
-            // wait 1 sec
-            setTimeout(function() {
-              if (!document.querySelector('.products-sublist:hover') && !document.querySelector('#products-list:hover')) {
-                document.getElementById('dropdown-products').checked = false;
-              }
-            }, 500);
-          });
-          // if mouseout of sublist, uncheck immediately
-          document.querySelector('.products-sublist').addEventListener('mouseout', function() {
-            setTimeout(function() {
-              if (!document.querySelector('.products-sublist:hover') && !document.querySelector('#products-list:hover')) {
-                document.getElementById('dropdown-products').checked = false;
-              }
-            }, 500);
-          });
-
-        </script>
-        <style>
-          #dropdown-resources:checked ~ .resources-sublist {
-            display: block;
-          }
-          #dropdown-products:checked ~ .products-sublist {
-            display: block;
-          }
-          /* Hide dropdown if clicking outside */
-          body:not(:has(#dropdown-resources:checked)) .resources-sublist,
-          body:not(:has(#dropdown-products:checked)) .products-sublist {
-            display: none;
-          }
-        </style>
-        <a href="https://github.com/roboflow/rf-detr"><li class="header-btn" style="border-radius: 5px; color: white; background: var(--md-typeset-a-color); padding-top: 0.25rem; padding-left: 0.5rem; padding-bottom: 0.25rem; padding-right: 0.5rem; border: 1px solid #8315F9;">Go to GitHub</li></a>
+        <li>
+          <a href="https://github.com/roboflow/rf-detr" class="header-btn" style="border-radius: 5px; color: white; background: var(--md-typeset-a-color); padding-top: 0.25rem; padding-left: 0.5rem; padding-bottom: 0.25rem; padding-right: 0.5rem; border: 1px solid #8315F9;">Go to GitHub</a>
+        </li>
     </ul>
+    <script>
+      document.addEventListener('click', function(event) {
+        const resourcesList = document.getElementById('resources-list');
+        const productsList = document.getElementById('products-list');
+        const dropdownResources = document.getElementById('dropdown-resources');
+        const dropdownProducts = document.getElementById('dropdown-products');
+
+        if (!resourcesList.contains(event.target)) {
+          dropdownResources.checked = false;
+        }
+        if (!productsList.contains(event.target)) {
+          dropdownProducts.checked = false;
+        }
+      });
+      document.getElementById('resources-list').addEventListener('mouseover', function() {
+        document.getElementById('dropdown-resources').checked = true;
+      });
+      document.getElementById('products-list').addEventListener('mouseover', function() {
+        document.getElementById('dropdown-products').checked = true;
+      });
+      document.getElementById('resources-list').addEventListener('mouseout', function() {
+        setTimeout(function() {
+          if (!document.querySelector('.resources-sublist:hover') && !document.querySelector('#resources-list:hover')) {
+            document.getElementById('dropdown-resources').checked = false;
+          }
+        }, 350);
+      });
+      document.querySelector('.resources-sublist').addEventListener('mouseout', function() {
+        setTimeout(function() {
+          if (!document.querySelector('.resources-sublist:hover') && !document.querySelector('#resources-list:hover')) {
+            document.getElementById('dropdown-resources').checked = false;
+          }
+        }, 450);
+      });
+      document.getElementById('products-list').addEventListener('mouseout', function() {
+        setTimeout(function() {
+          if (!document.querySelector('.products-sublist:hover') && !document.querySelector('#products-list:hover')) {
+            document.getElementById('dropdown-products').checked = false;
+          }
+        }, 500);
+      });
+      document.querySelector('.products-sublist').addEventListener('mouseout', function() {
+        setTimeout(function() {
+          if (!document.querySelector('.products-sublist:hover') && !document.querySelector('#products-list:hover')) {
+            document.getElementById('dropdown-products').checked = false;
+          }
+        }, 500);
+      });
+      function labelCurrentVersion() {
+        document.querySelectorAll('.md-version__current').forEach(function(button) {
+          const label = button.textContent.trim();
+          if (label) {
+            button.setAttribute('aria-label', label);
+          }
+        });
+      }
+      labelCurrentVersion();
+      const versionMenu = document.querySelector('.md-version');
+      if (versionMenu) {
+        new MutationObserver(labelCurrentVersion).observe(versionMenu, { childList: true, subtree: true });
+      }
+    </script>
   </nav>
 
   <!-- Navigation tabs (sticky) -->
@@ -548,7 +541,7 @@
   <label class="md-nav__title" for="__drawer">
     <a href="../.." title="RF-DETR" class="md-nav__button md-logo" aria-label="RF-DETR" data-md-component="logo">
       
-  <img src="../../assets/roboflow-logo.svg" alt="logo">
+  <img src="../../assets/roboflow-logo.svg" alt="RF-DETR" width="24" height="24">
 
     </a>
     RF-DETR
@@ -809,10 +802,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#breaking-changes" class="md-nav__link">
+  <a href="#planned-for-removal-in-v19" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Breaking changes
+        Planned for Removal in v1.9
       
     </span>
   </a>
@@ -837,7 +830,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#breaking-changes_1" class="md-nav__link">
+  <a href="#breaking-changes" class="md-nav__link">
     <span class="md-ellipsis">
       
         Breaking changes
@@ -865,7 +858,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#breaking-changes_2" class="md-nav__link">
+  <a href="#breaking-changes_1" class="md-nav__link">
     <span class="md-ellipsis">
       
         Breaking changes
@@ -915,7 +908,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#breaking-changes_3" class="md-nav__link">
+  <a href="#breaking-changes_2" class="md-nav__link">
     <span class="md-ellipsis">
       
         Breaking changes
@@ -965,7 +958,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#breaking-changes_4" class="md-nav__link">
+  <a href="#breaking-changes_3" class="md-nav__link">
     <span class="md-ellipsis">
       
         Breaking changes
@@ -2510,10 +2503,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#breaking-changes" class="md-nav__link">
+  <a href="#planned-for-removal-in-v19" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Breaking changes
+        Planned for Removal in v1.9
       
     </span>
   </a>
@@ -2538,7 +2531,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#breaking-changes_1" class="md-nav__link">
+  <a href="#breaking-changes" class="md-nav__link">
     <span class="md-ellipsis">
       
         Breaking changes
@@ -2566,7 +2559,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#breaking-changes_2" class="md-nav__link">
+  <a href="#breaking-changes_1" class="md-nav__link">
     <span class="md-ellipsis">
       
         Breaking changes
@@ -2616,7 +2609,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#breaking-changes_3" class="md-nav__link">
+  <a href="#breaking-changes_2" class="md-nav__link">
     <span class="md-ellipsis">
       
         Breaking changes
@@ -2666,7 +2659,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#breaking-changes_4" class="md-nav__link">
+  <a href="#breaking-changes_3" class="md-nav__link">
     <span class="md-ellipsis">
       
         Breaking changes
@@ -2723,32 +2716,93 @@ Deprecated APIs emit a <code>DeprecationWarning</code> until the version marked 
 See the <a href="../../changelog/">Changelog</a> for the full list of changes in each release.</p>
 <hr />
 <h2 id="upgrade-18-19">Upgrade 1.8 → 1.9<a class="headerlink" href="#upgrade-18-19" title="Permanent link">&para;</a></h2>
-<h3 id="breaking-changes">Breaking changes<a class="headerlink" href="#breaking-changes" title="Permanent link">&para;</a></h3>
+<h3 id="planned-for-removal-in-v19">Planned for Removal in v1.9<a class="headerlink" href="#planned-for-removal-in-v19" title="Permanent link">&para;</a></h3>
+<p>The following APIs were deprecated in earlier releases and will be removed in v1.9. They still work in the current release (v1.8.x) but emit <code>DeprecationWarning</code>. Update your code before upgrading.</p>
 <div class="admonition warning">
-<p class="admonition-title">Breaking: default keypoint schema changed to active-first <code>[17]</code></p>
-<p>New checkpoints use <code>class_id=0</code> for person. Legacy <code>[0, 17]</code> checkpoints are still supported —
-RF-DETR auto-detects the schema from the checkpoint at load time.</p>
-<p>If your post-processing code offsets class IDs by 1 (common for background-first models), update it:</p>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1"># Before (background-first [0, 17]: person was at class_id=1)</span>
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="n">class_name</span> <span class="o">=</span> <span class="s2">&quot;person&quot;</span> <span class="k">if</span> <span class="n">detection</span><span class="o">.</span><span class="n">class_id</span> <span class="o">==</span> <span class="mi">1</span> <span class="k">else</span> <span class="s2">&quot;other&quot;</span>
-</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
-</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="c1"># After (active-first [17]: person is at class_id=0)</span>
-</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="n">class_name</span> <span class="o">=</span> <span class="s2">&quot;person&quot;</span> <span class="k">if</span> <span class="n">detection</span><span class="o">.</span><span class="n">class_id</span> <span class="o">==</span> <span class="mi">0</span> <span class="k">else</span> <span class="s2">&quot;other&quot;</span>
+<p class="admonition-title">Planned for removal: <code>rfdetr.util.*</code> and <code>rfdetr.deploy.*</code> import paths</p>
+<p>Deprecated since v1.6. Use the canonical replacements listed in the <a href="#upgrade-15--16">Upgrade 1.5 → 1.6</a> section.</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1"># These imports still work in v1.8 but emit DeprecationWarning; update before v1.9</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="kn">from</span><span class="w"> </span><span class="nn">rfdetr.util.coco_classes</span><span class="w"> </span><span class="kn">import</span> <span class="n">COCO_CLASSES</span>  <span class="c1"># → rfdetr.assets.coco_classes</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="kn">from</span><span class="w"> </span><span class="nn">rfdetr.util.misc</span><span class="w"> </span><span class="kn">import</span> <span class="n">get_rank</span>  <span class="c1"># → rfdetr.utilities</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="kn">from</span><span class="w"> </span><span class="nn">rfdetr.deploy</span><span class="w"> </span><span class="kn">import</span> <span class="n">export_onnx</span>  <span class="c1"># → rfdetr.export.main</span>
 </span></code></pre></div>
-<p>Use <code>detection.data["class_name"]</code> for schema-agnostic name resolution.</p>
-<div class="admonition note">
-<p class="admonition-title">Preserving a legacy schema for fine-tuning</p>
-<p>Pass <code>num_keypoints_per_class</code> <strong>at construction time</strong> to keep the old schema:</p>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="n">config</span> <span class="o">=</span> <span class="n">RFDETRKeypointPreviewConfig</span><span class="p">(</span><span class="n">num_keypoints_per_class</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">17</span><span class="p">])</span>
-</span></code></pre></div>
-<p>Assigning the field after construction (<code>config.num_keypoints_per_class = [0, 17]</code>)
-does <strong>not</strong> register the override and RF-DETR may still auto-align the schema from the
-checkpoint. Always pass it to the constructor.</p>
 </div>
+<div class="admonition warning">
+<p class="admonition-title">Planned for removal: <code>build_namespace(model_config, train_config)</code></p>
+<p>Deprecated since v1.7. Use <code>build_model_from_config</code> and <code>build_criterion_from_config</code> instead.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Planned for removal: <code>load_pretrain_weights(nn_model, model_config, train_config)</code> with <code>train_config</code></p>
+<p>Deprecated since v1.7. Drop the <code>train_config</code> positional argument.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Planned for removal: <code>start_epoch</code> kwarg in <code>train()</code></p>
+<p>Deprecated since v1.7. PyTorch Lightning resumes automatically via <code>resume=</code>.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Planned for removal: <code>do_benchmark</code> kwarg in <code>train()</code></p>
+<p>Deprecated since v1.7. Use the <code>rfdetr.export.benchmark</code> module instead.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Planned for removal: <code>callbacks</code> dict kwarg in <code>train()</code></p>
+<p>Deprecated since v1.7. Pass PTL <code>Callback</code> objects directly via the Lightning API instead.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Planned for removal: misplaced config fields</p>
+<p>The following <code>TrainConfig</code> and <code>ModelConfig</code> fields moved to their correct config class in v1.7 and the deprecated compatibility shims will be removed in v1.9. Update any direct references:</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Removed from</th>
+<th>Use in</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>group_detr</code></td>
+<td><code>TrainConfig</code></td>
+<td><code>ModelConfig</code></td>
+</tr>
+<tr>
+<td><code>ia_bce_loss</code></td>
+<td><code>TrainConfig</code></td>
+<td><code>ModelConfig</code></td>
+</tr>
+<tr>
+<td><code>segmentation_head</code></td>
+<td><code>TrainConfig</code></td>
+<td><code>ModelConfig</code></td>
+</tr>
+<tr>
+<td><code>num_select</code></td>
+<td><code>TrainConfig</code></td>
+<td><code>ModelConfig</code></td>
+</tr>
+<tr>
+<td><code>cls_loss_coef</code></td>
+<td><code>ModelConfig</code></td>
+<td><code>TrainConfig</code></td>
+</tr>
+</tbody>
+</table>
 </div>
 <hr />
 <h2 id="upgrade-17-18">Upgrade 1.7 → 1.8<a class="headerlink" href="#upgrade-17-18" title="Permanent link">&para;</a></h2>
-<h3 id="breaking-changes_1">Breaking changes<a class="headerlink" href="#breaking-changes_1" title="Permanent link">&para;</a></h3>
+<h3 id="breaking-changes">Breaking changes<a class="headerlink" href="#breaking-changes" title="Permanent link">&para;</a></h3>
+<div class="admonition note">
+<p class="admonition-title">Breaking in v1.8.2: default keypoint schema changed to active-first <code>[17]</code></p>
+<p>New checkpoints created from v1.8.2 onwards use <code>class_id=0</code> for person. Legacy <code>[0, 17]</code> checkpoints
+are still supported — RF-DETR auto-detects the schema from the checkpoint at load time.</p>
+<p>If your post-processing code offsets class IDs by 1 (common for background-first models), update it:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1"># Before (background-first [0, 17]: person was at class_id=1)</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="n">class_name</span> <span class="o">=</span> <span class="s2">&quot;person&quot;</span> <span class="k">if</span> <span class="n">detection</span><span class="o">.</span><span class="n">class_id</span> <span class="o">==</span> <span class="mi">1</span> <span class="k">else</span> <span class="s2">&quot;other&quot;</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="c1"># After (active-first [17]: person is at class_id=0)</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="n">class_name</span> <span class="o">=</span> <span class="s2">&quot;person&quot;</span> <span class="k">if</span> <span class="n">detection</span><span class="o">.</span><span class="n">class_id</span> <span class="o">==</span> <span class="mi">0</span> <span class="k">else</span> <span class="s2">&quot;other&quot;</span>
+</span></code></pre></div>
+<p>Use <code>detection.data["class_name"]</code> for schema-agnostic name resolution.</p>
+</div>
 <div class="admonition warning">
 <p class="admonition-title">Breaking: <code>rfdetr.datasets.aug_config</code> renamed to <code>rfdetr.datasets.aug_configs</code></p>
 <p>The augmentation config module was renamed (singular → plural). If you import from it directly:</p>
@@ -2773,7 +2827,7 @@ If another dependency pins <code>supervision&lt;0.29.0</code>, resolve the confl
 </div>
 <hr />
 <h2 id="upgrade-16-17">Upgrade 1.6 → 1.7<a class="headerlink" href="#upgrade-16-17" title="Permanent link">&para;</a></h2>
-<h3 id="breaking-changes_2">Breaking changes<a class="headerlink" href="#breaking-changes_2" title="Permanent link">&para;</a></h3>
+<h3 id="breaking-changes_1">Breaking changes<a class="headerlink" href="#breaking-changes_1" title="Permanent link">&para;</a></h3>
 <div class="admonition warning">
 <p class="admonition-title">Breaking: <code>peft</code> removed from the default install</p>
 <p>LoRA fine-tuning now requires the <code>lora</code> extra. If you use LoRA adapters during
@@ -2899,26 +2953,23 @@ classes. Choose the variant that matches your previous model size. If you used
 </div>
 <div class="admonition note">
 <p class="admonition-title">Deprecated: <code>RFDETRSegPreview</code> replaced by size-specific segmentation classes</p>
-</div>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>**`RFDETRSegPreview`** defaulted to the small variant and is replaced by size-specific
-</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>segmentation classes. If you used `RFDETRSegPreview()` without arguments, switch to
-</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>`RFDETRSegSmall()`.
-</span><span id="__span-12-4"><a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a>
-</span><span id="__span-12-5"><a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a>```python
-</span><span id="__span-12-6"><a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a># Before (deprecated)
-</span><span id="__span-12-7"><a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a>from rfdetr import RFDETRSegPreview
+<p><strong><code>RFDETRSegPreview</code></strong> defaulted to the small variant and is replaced by size-specific
+segmentation classes. If you used <code>RFDETRSegPreview()</code> without arguments, switch to
+<code>RFDETRSegSmall()</code>.</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="c1"># Before (deprecated)</span>
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="kn">from</span><span class="w"> </span><span class="nn">rfdetr</span><span class="w"> </span><span class="kn">import</span> <span class="n">RFDETRSegPreview</span>
+</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>
+</span><span id="__span-12-4"><a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">RFDETRSegPreview</span><span class="p">()</span>
+</span><span id="__span-12-5"><a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a>
+</span><span id="__span-12-6"><a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a><span class="c1"># After — pick one</span>
+</span><span id="__span-12-7"><a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a><span class="kn">from</span><span class="w"> </span><span class="nn">rfdetr</span><span class="w"> </span><span class="kn">import</span> <span class="n">RFDETRSegNano</span><span class="p">,</span> <span class="n">RFDETRSegSmall</span><span class="p">,</span> <span class="n">RFDETRSegMedium</span><span class="p">,</span> <span class="n">RFDETRSegLarge</span>
 </span><span id="__span-12-8"><a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a>
-</span><span id="__span-12-9"><a id="__codelineno-12-9" name="__codelineno-12-9" href="#__codelineno-12-9"></a>model = RFDETRSegPreview()
-</span><span id="__span-12-10"><a id="__codelineno-12-10" name="__codelineno-12-10" href="#__codelineno-12-10"></a>
-</span><span id="__span-12-11"><a id="__codelineno-12-11" name="__codelineno-12-11" href="#__codelineno-12-11"></a># After — pick one
-</span><span id="__span-12-12"><a id="__codelineno-12-12" name="__codelineno-12-12" href="#__codelineno-12-12"></a>from rfdetr import RFDETRSegNano, RFDETRSegSmall, RFDETRSegMedium, RFDETRSegLarge
-</span><span id="__span-12-13"><a id="__codelineno-12-13" name="__codelineno-12-13" href="#__codelineno-12-13"></a>
-</span><span id="__span-12-14"><a id="__codelineno-12-14" name="__codelineno-12-14" href="#__codelineno-12-14"></a>model = RFDETRSegSmall()
-</span><span id="__span-12-15"><a id="__codelineno-12-15" name="__codelineno-12-15" href="#__codelineno-12-15"></a>```
+</span><span id="__span-12-9"><a id="__codelineno-12-9" name="__codelineno-12-9" href="#__codelineno-12-9"></a><span class="n">model</span> <span class="o">=</span> <span class="n">RFDETRSegSmall</span><span class="p">()</span>
 </span></code></pre></div>
+</div>
 <hr />
 <h2 id="upgrade-15-16">Upgrade 1.5 → 1.6<a class="headerlink" href="#upgrade-15-16" title="Permanent link">&para;</a></h2>
-<h3 id="breaking-changes_3">Breaking changes<a class="headerlink" href="#breaking-changes_3" title="Permanent link">&para;</a></h3>
+<h3 id="breaking-changes_2">Breaking changes<a class="headerlink" href="#breaking-changes_2" title="Permanent link">&para;</a></h3>
 <div class="admonition warning">
 <p class="admonition-title">Breaking: <code>transformers</code> minimum version raised to <code>&gt;=5.1.0</code></p>
 <p><strong><code>transformers</code> minimum version raised to <code>&gt;=5.1.0,&lt;6.0.0</code>.</strong></p>
@@ -3066,7 +3117,7 @@ Replace with the canonical paths listed in the table below.</p>
 </div>
 <hr />
 <h2 id="upgrade-14-15">Upgrade 1.4 → 1.5<a class="headerlink" href="#upgrade-14-15" title="Permanent link">&para;</a></h2>
-<h3 id="breaking-changes_4">Breaking changes<a class="headerlink" href="#breaking-changes_4" title="Permanent link">&para;</a></h3>
+<h3 id="breaking-changes_3">Breaking changes<a class="headerlink" href="#breaking-changes_3" title="Permanent link">&para;</a></h3>
 <div class="admonition warning">
 <p class="admonition-title">Breaking: <code>ModelConfig</code> rejects unknown keyword arguments</p>
 <p><strong><code>ModelConfig</code> now raises <code>ValidationError</code> on unknown keyword arguments.</strong></p>
@@ -3089,7 +3140,7 @@ unrecognised keys you pass to <code>ModelConfig(...)</code>.</p>
 </span><span id="__span-19-2"><a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a><span class="kn">from</span><span class="w"> </span><span class="nn">rfdetr</span><span class="w"> </span><span class="kn">import</span> <span class="n">OPEN_SOURCE_MODELS</span>
 </span><span id="__span-19-3"><a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a>
 </span><span id="__span-19-4"><a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a><span class="c1"># After</span>
-</span><span id="__span-19-5"><a id="__codelineno-19-5" name="__codelineno-19-5" href="#__codelineno-19-5"></a><span class="kn">from</span><span class="w"> </span><span class="nn">rfdetr</span><span class="w"> </span><span class="kn">import</span> <span class="n">ModelWeights</span>
+</span><span id="__span-19-5"><a id="__codelineno-19-5" name="__codelineno-19-5" href="#__codelineno-19-5"></a><span class="kn">from</span><span class="w"> </span><span class="nn">rfdetr.assets.model_weights</span><span class="w"> </span><span class="kn">import</span> <span class="n">ModelWeights</span>
 </span></code></pre></div>
 </div>
 
@@ -3112,7 +3163,7 @@ unrecognised keys you pass to <code>ModelConfig(...)</code>.</p>
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_datetime" title="June 25, 2026 12:15:19 UTC">2026-06-25 12:15:19</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_datetime" title="July 3, 2026 19:26:12 UTC">2026-07-03 19:26:12</span>
   </span>
 
     
