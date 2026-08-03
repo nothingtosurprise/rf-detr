@@ -12,7 +12,7 @@
         <meta name="author" content="Roboflow">
       
       
-        <link rel="canonical" href="https://rfdetr.roboflow.com/develop/cookbooks/export-executorch/">
+        <link rel="canonical" href="https://rfdetr.roboflow.com/develop/cookbooks/export-coreml/">
       
       
       
@@ -27,7 +27,7 @@
   
     
       
-        <title>RF-DETR → ExecuTorch Export & Inference - RF-DETR</title>
+        <title>RF-DETR → Native CoreML Export & Inference - RF-DETR</title>
       
     
   
@@ -78,10 +78,10 @@
   
   
   
-  <meta property="og:title" content="RF-DETR → ExecuTorch Export &amp; Inference - RF-DETR">
+  <meta property="og:title" content="RF-DETR → Native CoreML Export &amp; Inference - RF-DETR">
   <meta property="og:description" content="Real-time transformer for object detection and instance segmentation. DINOv2 backbone, SOTA on COCO (60.1 AP50:95). Apache 2.0. Works with Python ≥3.10.">
   <meta property="og:type" content="article">
-  <meta property="og:url" content="https://rfdetr.roboflow.com/develop/cookbooks/export-executorch/">
+  <meta property="og:url" content="https://rfdetr.roboflow.com/develop/cookbooks/export-coreml/">
   <meta property="og:image" content="https://storage.googleapis.com/com-roboflow-marketing/rf-detr/rf_detr_1-4_latency_accuracy_object_detection.png">
   <meta property="og:image:width" content="840">
   <meta property="og:image:height" content="630">
@@ -89,7 +89,7 @@
   
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:site" content="@roboflow">
-  <meta name="twitter:title" content="RF-DETR → ExecuTorch Export &amp; Inference - RF-DETR">
+  <meta name="twitter:title" content="RF-DETR → Native CoreML Export &amp; Inference - RF-DETR">
   <meta name="twitter:description" content="Real-time transformer for object detection and instance segmentation. DINOv2 backbone, SOTA on COCO (60.1 AP50:95). Apache 2.0. Works with Python ≥3.10.">
   <meta name="twitter:image" content="https://storage.googleapis.com/com-roboflow-marketing/rf-detr/rf_detr_1-4_latency_accuracy_object_detection.png">
 
@@ -97,26 +97,26 @@
   
   
   
-  <meta property="article:modified_time" content="2026-07-27T13:06:18">
+  <meta property="article:modified_time" content="2026-07-28T18:51:45">
   
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "TechArticle",
-    "headline": "RF-DETR \u2192 ExecuTorch Export \u0026amp; Inference",
+    "headline": "RF-DETR \u2192 Native CoreML Export \u0026amp; Inference",
     "description": "Real-time transformer for object detection and instance segmentation. DINOv2 backbone, SOTA on COCO (60.1 AP50:95). Apache 2.0. Works with Python \u22653.10.",
-    "url": "https://rfdetr.roboflow.com/develop/cookbooks/export-executorch/",
+    "url": "https://rfdetr.roboflow.com/develop/cookbooks/export-coreml/",
     "isPartOf": {"@id": "https://rfdetr.roboflow.com/develop#website"},
     "about": {"@id": "https://rfdetr.roboflow.com/develop#software"},
     "proficiencyLevel": "Beginner to advanced",
     "inLanguage": "en",
     "keywords": "RF-DETR, rfdetr, object detection, instance segmentation, computer vision, Roboflow",
     "datePublished": "2025-03-01",
-    "dateModified": "2026-07-27T13:06:18",
+    "dateModified": "2026-07-28T18:51:45",
     "image": "https://storage.googleapis.com/com-roboflow-marketing/rf-detr/rf_detr_1-4_latency_accuracy_object_detection.png",
     "author": {"@type": "Organization", "name": "Roboflow", "url": "https://roboflow.com"},
     "publisher": {"@type": "Organization", "name": "Roboflow", "url": "https://roboflow.com"},
-    "mainEntityOfPage": {"@type": "WebPage", "@id": "https://rfdetr.roboflow.com/develop/cookbooks/export-executorch/"},
+    "mainEntityOfPage": {"@type": "WebPage", "@id": "https://rfdetr.roboflow.com/develop/cookbooks/export-coreml/"},
     "speakable": {
       "@type": "SpeakableSpecification",
       "cssSelector": [".md-content h1", ".md-typeset > p:first-child"]
@@ -138,8 +138,8 @@
       {
         "@type": "ListItem",
         "position": 2,
-        "name": "RF-DETR \u2192 ExecuTorch Export \u0026amp; Inference",
-        "item": "https://rfdetr.roboflow.com/develop/cookbooks/export-executorch/"
+        "name": "RF-DETR \u2192 Native CoreML Export \u0026amp; Inference",
+        "item": "https://rfdetr.roboflow.com/develop/cookbooks/export-coreml/"
       }
       
     ]
@@ -160,7 +160,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#rf-detr-executorch-export-inference" class="md-skip">
+        <a href="#rf-detr-native-coreml-export-inference" class="md-skip">
           Skip to content
         </a>
       
@@ -228,7 +228,7 @@
 
             </a>
             
-              RF-DETR → ExecuTorch Export &amp; Inference
+              RF-DETR → Native CoreML Export &amp; Inference
             
           </span>
         </div>
@@ -2310,10 +2310,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#3-export-to-a-program" class="md-nav__link">
+  <a href="#3-export-to-a" class="md-nav__link">
     <span class="md-ellipsis">
       
-        3. Export to a program
+        3. Export to a
       
     </span>
   </a>
@@ -2321,49 +2321,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#4-other-backends" class="md-nav__link">
+  <a href="#4-sample-image" class="md-nav__link">
     <span class="md-ellipsis">
       
-        4. Other backends
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="4. Other backends">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#apple-coreml-fp16" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Apple (CoreML, fp16)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#qualcomm-snapdragon-qnn-fp16" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Qualcomm Snapdragon (QNN, fp16)
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#5-sample-image" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        5. Sample image
+        4. Sample image
       
     </span>
   </a>
@@ -2371,10 +2332,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#6-run-the-on-the-cpu" class="md-nav__link">
+  <a href="#5-run-the-with" class="md-nav__link">
     <span class="md-ellipsis">
       
-        6. Run the on the CPU
+        5. Run the with
       
     </span>
   </a>
@@ -2382,10 +2343,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#7-visualize-with-supervision" class="md-nav__link">
+  <a href="#6-visualize-with-supervision" class="md-nav__link">
     <span class="md-ellipsis">
       
-        7. Visualize with supervision
+        6. Visualize with supervision
       
     </span>
   </a>
@@ -3145,79 +3106,41 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 </style>
 <!-- End of mermaid configuration --><div class="jupyter-wrapper">
 <div class="jp-Notebook" data-jp-theme-light="true" data-jp-theme-name="JupyterLab Light">
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=64667c50">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=e3ce9e88">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h1 id="rf-detr-executorch-export-inference">RF-DETR → ExecuTorch Export &amp; Inference<a class="anchor-link" href="#rf-detr-executorch-export-inference">¶</a></h1><p>Export an RF-DETR detector to a portable <strong>ExecuTorch program</strong> (<code>.pte</code>) for on-device deployment on
-mobile and edge hardware, then run it on the CPU and visualize the detections. Unlike ONNX or TFLite,
-the model is captured directly via <code>torch.export</code> (no intermediate conversion) and lowered to a
-hardware backend:</p>
-<table>
-<thead>
-<tr>
-<th>Backend</th>
-<th>Target</th>
-<th>Precision</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong><code>xnnpack</code></strong> (this notebook)</td>
-<td>portable CPU (Android / iOS / Linux / macOS)</td>
-<td>fp32</td>
-</tr>
-<tr>
-<td><code>coreml</code></td>
-<td>Apple Neural Engine</td>
-<td>fp16</td>
-</tr>
-<tr>
-<td><code>qnn</code></td>
-<td>Qualcomm Snapdragon HTP</td>
-<td>fp16</td>
-</tr>
-</tbody>
-</table>
-<p>!!! warning "The input tensor must be contiguous"</p>
-<pre><code>The ExecuTorch runtime reads the input buffer as contiguous NCHW and ignores tensor strides. Any
-preprocessing that permutes axes — `np.transpose`, `Tensor.permute`, torchvision's `ToImage` —
-returns a strided view rather than a copy, and the runtime misreads such a view as a scrambled
-image. Nothing errors: the model runs without error and returns plausible-shaped output, but every
-detection's score collapses below threshold. This cookbook is safe because `infer_transforms`
-already materializes a contiguous tensor (its final `_ensure_contiguous` step); Step 6 also calls
-`.contiguous()` defensively so the requirement stays visible for anyone adapting the preprocessing.</code></pre>
+<h1 id="rf-detr-native-coreml-export-inference">RF-DETR → Native CoreML Export &amp; Inference<a class="anchor-link" href="#rf-detr-native-coreml-export-inference">¶</a></h1><p>Export an RF-DETR detector directly to a native <strong>CoreML <code>.mlpackage</code></strong> you can drag straight into Xcode —
+no ONNX intermediary and no ExecuTorch runtime involved.</p>
+<blockquote>
+<p><strong>Not the same as the ExecuTorch CoreML backend.</strong> <code>format="coreml"</code> (this notebook) exports via
+<code>torch.export</code> + <code>coremltools</code> straight to a native <code>.mlpackage</code>. <code>format="executorch", backend="coreml"</code>
+is a different path — it produces a <code>.pte</code> file for the ExecuTorch runtime instead. See the
+<a href="../export-executorch/">ExecuTorch cookbook</a> for that path.</p>
+</blockquote>
+<blockquote>
+<p><strong>macOS only.</strong> Running (not just building) a CoreML model requires the Core ML runtime, which only
+exists on macOS / iOS. This notebook must run on a <strong>local macOS machine</strong> — it will not work on Colab
+or any Linux runner.</p>
+</blockquote>
 </div>
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=f9b6a8c1">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=ac905f11">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="1-install">1. Install<a class="anchor-link" href="#1-install">¶</a></h2><p>The <code>[executorch]</code> extra provides the exporter and the XNNPACK backend.</p>
-<p>Colab ships mutually inconsistent preinstalled packages that otherwise crash <code>import rfdetr</code>, so two are
-aligned: <code>torchaudio</code> is uninstalled (RF-DETR never uses it, but <code>transformers</code> imports it when present and
-a <code>torch</code>/<code>torchaudio</code> CUDA-version mismatch then errors), and <code>pillow</code> is force-reinstalled to a clean
-version (a half-upgraded PIL breaks <code>torchvision</code>'s import with <code>cannot import name '_Ink'</code>).</p>
-<blockquote>
-<p><strong><code>flatc</code></strong> — ExecuTorch serializes the <code>.pte</code> with the FlatBuffers compiler. It ships in the Linux
-<code>executorch</code> wheel (so Colab works out of the box); on macOS install it separately with
-<code>brew install flatbuffers</code>.</p>
-</blockquote>
-<blockquote>
-<p><strong>Colab</strong>: after this cell, <strong>Runtime → Restart session</strong>, then run from the next cell — Colab keeps the
-old package versions loaded until a restart.</p>
-</blockquote>
+<h2 id="1-install">1. Install<a class="anchor-link" href="#1-install">¶</a></h2><p>The <code>[coreml]</code> extra provides <code>coremltools</code>, the exporter's only dependency beyond <code>torch</code>.</p>
 </div>
 </div>
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
-<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=ae48d9d4">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=aa06fb0d">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -3235,31 +3158,27 @@ old package versions loaded until a restart.</p>
 </div>
 </clipboard-copy>
 </div>
-<div class="highlight-ipynb hl-python"><pre><span></span><span class="err">!</span><span class="n">pip</span> <span class="n">install</span> <span class="o">-</span><span class="n">q</span> <span class="s2">"rfdetr[executorch]&gt;=1.9.0"</span> <span class="s2">"torch&lt;2.13"</span> <span class="n">supervision</span>
-<span class="err">!</span><span class="n">pip</span> <span class="n">install</span> <span class="o">-</span><span class="n">q</span> <span class="o">--</span><span class="n">force</span><span class="o">-</span><span class="n">reinstall</span> <span class="o">--</span><span class="n">no</span><span class="o">-</span><span class="n">deps</span> <span class="s2">"pillow==11.3.0"</span>
-<span class="err">!</span><span class="n">pip</span> <span class="n">uninstall</span> <span class="o">-</span><span class="n">q</span> <span class="o">-</span><span class="n">y</span> <span class="n">torchaudio</span>
+<div class="highlight-ipynb hl-python"><pre><span></span><span class="err">!</span><span class="n">pip</span> <span class="n">install</span> <span class="o">-</span><span class="n">q</span> <span class="s2">"rfdetr[coreml]&gt;=1.9.0"</span> <span class="n">supervision</span>
 </pre></div>
-<div class="clipboard-copy-txt" id="cell-1">!pip install -q "rfdetr[executorch]&gt;=1.9.0" "torch&lt;2.13" supervision
-!pip install -q --force-reinstall --no-deps "pillow==11.3.0"
-!pip uninstall -q -y torchaudio</div>
+<div class="clipboard-copy-txt" id="cell-1">!pip install -q "rfdetr[coreml]&gt;=1.9.0" supervision</div>
 </div>
 </div>
 </div>
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=5adaff03">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=7f47977e">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="2-setup">2. Setup<a class="anchor-link" href="#2-setup">¶</a></h2><p>ExecuTorch export is CPU-only — no GPU is needed.</p>
+<h2 id="2-setup">2. Setup<a class="anchor-link" href="#2-setup">¶</a></h2><p>CoreML export itself runs on CPU — no GPU is needed.</p>
 </div>
 </div>
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
-<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=bd892ca1">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=cf61c100">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -3281,14 +3200,14 @@ old package versions loaded until a restart.</p>
 
 <span class="kn">from</span><span class="w"> </span><span class="nn">rfdetr</span><span class="w"> </span><span class="kn">import</span> <span class="n">RFDETRSmall</span>
 
-<span class="n">EXPORT_DIR</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s2">"export_executorch"</span><span class="p">)</span>
+<span class="n">EXPORT_DIR</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s2">"export_coreml"</span><span class="p">)</span>
 <span class="n">EXPORT_DIR</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 <div class="clipboard-copy-txt" id="cell-2">from pathlib import Path
 
 from rfdetr import RFDETRSmall
 
-EXPORT_DIR = Path("export_executorch")
+EXPORT_DIR = Path("export_coreml")
 EXPORT_DIR.mkdir(exist_ok=True)</div>
 </div>
 </div>
@@ -3296,22 +3215,24 @@ EXPORT_DIR.mkdir(exist_ok=True)</div>
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=6dcd7fe5">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=c205fee5">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="3-export-to-a-pte-program">3. Export to a <code>.pte</code> program<a class="anchor-link" href="#3-export-to-a-pte-program">¶</a></h2><p><code>format="executorch"</code> requires an explicit <code>backend</code>. The COCO-pretrained <code>RFDETRSmall</code> is exported
-directly — pass <code>pretrain_weights="&lt;path/to/checkpoint.pth&gt;"</code> to export a fine-tuned model instead.</p>
-<p>The file is named after the model variant (<code>rfdetr-small.pte</code>). <code>torch.export</code> bakes a fixed input shape
-into the graph (square at the model's resolution), so <code>dynamic_batch</code> is not supported — export one <code>.pte</code>
-per batch size.</p>
+<h2 id="3-export-to-a-mlpackage">3. Export to a <code>.mlpackage</code><a class="anchor-link" href="#3-export-to-a-mlpackage">¶</a></h2><p>The COCO-pretrained <code>RFDETRSmall</code> is exported directly — pass <code>pretrain_weights="&lt;path/to/checkpoint.pth&gt;"</code>
+to export a fine-tuned model instead.</p>
+<p>The file is named after the model variant (<code>rfdetr-small.mlpackage</code>). <code>dynamic_batch=True</code> is not
+supported — fixed shapes are required for reliable ANE / GPU scheduling, so export one <code>.mlpackage</code> per
+batch size.</p>
+<p>Export leaves <code>coreml_precision</code> at its default <code>None</code>, which selects FP32 for tight CPU parity with eager PyTorch. Pass
+<code>coreml_precision="float16"</code> instead for a smaller, ANE-oriented bundle (expect larger numeric drift).</p>
 </div>
 </div>
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
-<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=b0dd5b6a">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=dafc5276">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -3331,50 +3252,32 @@ per batch size.</p>
 </div>
 <div class="highlight-ipynb hl-python"><pre><span></span><span class="n">model</span> <span class="o">=</span> <span class="n">RFDETRSmall</span><span class="p">()</span>
 
-<span class="n">pte_path</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">export</span><span class="p">(</span><span class="nb">format</span><span class="o">=</span><span class="s2">"executorch"</span><span class="p">,</span> <span class="n">backend</span><span class="o">=</span><span class="s2">"xnnpack"</span><span class="p">,</span> <span class="n">output_dir</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="n">EXPORT_DIR</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"ExecuTorch program: </span><span class="si">{</span><span class="n">pte_path</span><span class="si">}</span><span class="s2">  (</span><span class="si">{</span><span class="n">pte_path</span><span class="o">.</span><span class="n">stat</span><span class="p">()</span><span class="o">.</span><span class="n">st_size</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mf">1e6</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2"> MB)"</span><span class="p">)</span>
+<span class="n">mlpackage_path</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">export</span><span class="p">(</span><span class="nb">format</span><span class="o">=</span><span class="s2">"coreml"</span><span class="p">,</span> <span class="n">output_dir</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="n">EXPORT_DIR</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"CoreML package: </span><span class="si">{</span><span class="n">mlpackage_path</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 </pre></div>
 <div class="clipboard-copy-txt" id="cell-3">model = RFDETRSmall()
 
-pte_path = model.export(format="executorch", backend="xnnpack", output_dir=str(EXPORT_DIR))
-print(f"ExecuTorch program: {pte_path}  ({pte_path.stat().st_size / 1e6:.1f} MB)")</div>
+mlpackage_path = model.export(format="coreml", output_dir=str(EXPORT_DIR))
+print(f"CoreML package: {mlpackage_path}")</div>
 </div>
 </div>
 </div>
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=62022c69">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=96ffef9c">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="4-other-backends">4. Other backends<a class="anchor-link" href="#4-other-backends">¶</a></h2><p>Swap the <code>backend</code> argument to target a different on-device runtime.</p>
-<h3 id="apple-coreml-fp16">Apple (CoreML, fp16)<a class="anchor-link" href="#apple-coreml-fp16">¶</a></h3><p>Install <code>coremltools</code>, then rerun the export cell with:</p>
-<div class="highlight"><pre><span></span><span class="n">model</span><span class="o">.</span><span class="n">export</span><span class="p">(</span><span class="nb">format</span><span class="o">=</span><span class="s2">"executorch"</span><span class="p">,</span> <span class="n">backend</span><span class="o">=</span><span class="s2">"coreml"</span><span class="p">,</span> <span class="n">output_dir</span><span class="o">=</span><span class="s2">"export_executorch"</span><span class="p">)</span>
-</pre></div>
-<h3 id="qualcomm-snapdragon-qnn-fp16">Qualcomm Snapdragon (QNN, fp16)<a class="anchor-link" href="#qualcomm-snapdragon-qnn-fp16">¶</a></h3><p>Build ExecuTorch from source against the QAIRT SDK (the QNN backend is not pip-installable), then rerun the export cell with:</p>
-<div class="highlight"><pre><span></span><span class="n">model</span><span class="o">.</span><span class="n">export</span><span class="p">(</span><span class="nb">format</span><span class="o">=</span><span class="s2">"executorch"</span><span class="p">,</span> <span class="n">backend</span><span class="o">=</span><span class="s2">"qnn"</span><span class="p">,</span> <span class="n">soc</span><span class="o">=</span><span class="s2">"SM8650"</span><span class="p">,</span> <span class="n">output_dir</span><span class="o">=</span><span class="s2">"export_executorch"</span><span class="p">)</span>
-</pre></div>
-<p>CoreML runs fp16 on the Apple Neural Engine; QNN targets the Snapdragon HTP and bakes in the target SoC.</p>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=0883846c">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="5-sample-image">5. Sample image<a class="anchor-link" href="#5-sample-image">¶</a></h2><p>A single street scene with several COCO classes (dog, person, backpack, car) is enough to verify
+<h2 id="4-sample-image">4. Sample image<a class="anchor-link" href="#4-sample-image">¶</a></h2><p>A single street scene with several COCO classes (dog, person, backpack, car) is enough to verify
 detections. The image is downloaded once and reused.</p>
 </div>
 </div>
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
-<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=b2de9b6a">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=38ded628">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -3421,26 +3324,23 @@ print(f"Sample image: {image.size[0]}×{image.size[1]}")</div>
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=1fa8e5d0">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=72f3b56b">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="6-run-the-pte-on-the-cpu">6. Run the <code>.pte</code> on the CPU<a class="anchor-link" href="#6-run-the-pte-on-the-cpu">¶</a></h2><p><code>Runtime.load_program(...).load_method("forward")</code> gives a callable graph whose two outputs are <code>dets</code>
-(boxes, <code>cxcywh</code>, normalized) and <code>labels</code> (class logits). The <code>.pte</code> expects the same input the model
-was trained on: NCHW, ImageNet-normalized, at the traced resolution — <code>infer_transforms</code> builds exactly
-that pipeline.</p>
-<p>The trailing <code>.contiguous()</code> is defensive. <code>infer_transforms</code> already returns a contiguous tensor (its
-final <code>_ensure_contiguous</code> step), so the call is a no-op here — it documents the runtime's requirement
-explicitly. If you swap in your own preprocessing that permutes axes without copying, the ExecuTorch
-runtime would ignore the strides, misread the buffer as a scrambled image, and every detection would
-collapse below threshold.</p>
+<h2 id="5-run-the-mlpackage-with-coremltools">5. Run the <code>.mlpackage</code> with <code>coremltools</code><a class="anchor-link" href="#5-run-the-mlpackage-with-coremltools">¶</a></h2><p><code>coremltools</code> infers its own input/output names for the <code>.mlpackage</code> spec — they are <strong>not</strong> renamed to
+<code>input</code> / <code>dets</code> / <code>labels</code>. Read the input name and output order from <code>mlmodel.get_spec().description</code>
+instead of hardcoding them, then match outputs <strong>by position</strong> in the same order as the ONNX
+<code>output_names</code> contract (<code>dets, labels</code> for detection; <code>dets, labels, masks</code> for segmentation).</p>
+<p>Preprocessing is the same NCHW, ImageNet-normalized pipeline the ONNX and ExecuTorch exports expect —
+<code>infer_transforms</code> builds it directly.</p>
 </div>
 </div>
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
-<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=e6510471">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=05b46c36">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -3458,8 +3358,9 @@ collapse below threshold.</p>
 </div>
 </clipboard-copy>
 </div>
-<div class="highlight-ipynb hl-python"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">torch</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">executorch.runtime</span><span class="w"> </span><span class="kn">import</span> <span class="n">Runtime</span>
+<div class="highlight-ipynb hl-python"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">coremltools</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">ct</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">torch</span>
 
 <span class="kn">from</span><span class="w"> </span><span class="nn">rfdetr.export.benchmark</span><span class="w"> </span><span class="kn">import</span> <span class="n">infer_transforms</span><span class="p">,</span> <span class="n">post_process</span>
 
@@ -3467,17 +3368,23 @@ collapse below threshold.</p>
 
 <span class="n">resolution</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">model_config</span><span class="o">.</span><span class="n">resolution</span>
 <span class="n">image_tensor</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">infer_transforms</span><span class="p">((</span><span class="n">resolution</span><span class="p">,</span> <span class="n">resolution</span><span class="p">))(</span><span class="n">image</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
-<span class="n">pixel_values</span> <span class="o">=</span> <span class="n">image_tensor</span><span class="p">[</span><span class="kc">None</span><span class="p">]</span><span class="o">.</span><span class="n">float</span><span class="p">()</span><span class="o">.</span><span class="n">contiguous</span><span class="p">()</span>
+<span class="n">pixel_values</span> <span class="o">=</span> <span class="n">image_tensor</span><span class="p">[</span><span class="kc">None</span><span class="p">]</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span>
 
-<span class="n">method</span> <span class="o">=</span> <span class="n">Runtime</span><span class="o">.</span><span class="n">get</span><span class="p">()</span><span class="o">.</span><span class="n">load_program</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">pte_path</span><span class="p">))</span><span class="o">.</span><span class="n">load_method</span><span class="p">(</span><span class="s2">"forward"</span><span class="p">)</span>
-<span class="n">dets</span><span class="p">,</span> <span class="n">labels</span> <span class="o">=</span> <span class="n">method</span><span class="o">.</span><span class="n">execute</span><span class="p">([</span><span class="n">pixel_values</span><span class="p">])</span>
+<span class="n">mlmodel</span> <span class="o">=</span> <span class="n">ct</span><span class="o">.</span><span class="n">models</span><span class="o">.</span><span class="n">MLModel</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">mlpackage_path</span><span class="p">))</span>
+<span class="n">spec</span> <span class="o">=</span> <span class="n">mlmodel</span><span class="o">.</span><span class="n">get_spec</span><span class="p">()</span>
+<span class="n">input_name</span> <span class="o">=</span> <span class="n">spec</span><span class="o">.</span><span class="n">description</span><span class="o">.</span><span class="n">input</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">name</span>
+<span class="n">output_names</span> <span class="o">=</span> <span class="p">[</span><span class="n">o</span><span class="o">.</span><span class="n">name</span> <span class="k">for</span> <span class="n">o</span> <span class="ow">in</span> <span class="n">spec</span><span class="o">.</span><span class="n">description</span><span class="o">.</span><span class="n">output</span><span class="p">]</span>
+
+<span class="n">prediction</span> <span class="o">=</span> <span class="n">mlmodel</span><span class="o">.</span><span class="n">predict</span><span class="p">({</span><span class="n">input_name</span><span class="p">:</span> <span class="n">pixel_values</span><span class="p">})</span>
+<span class="n">dets</span><span class="p">,</span> <span class="n">labels</span> <span class="o">=</span> <span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">from_numpy</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">prediction</span><span class="p">[</span><span class="n">name</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">))</span> <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">output_names</span><span class="p">[:</span><span class="mi">2</span><span class="p">])</span>
 
 <span class="n">target_sizes</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">([[</span><span class="n">image</span><span class="o">.</span><span class="n">height</span><span class="p">,</span> <span class="n">image</span><span class="o">.</span><span class="n">width</span><span class="p">]])</span>
 <span class="n">result</span> <span class="o">=</span> <span class="n">post_process</span><span class="p">({</span><span class="s2">"dets"</span><span class="p">:</span> <span class="n">dets</span><span class="p">,</span> <span class="s2">"labels"</span><span class="p">:</span> <span class="n">labels</span><span class="p">},</span> <span class="n">target_sizes</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Top score: </span><span class="si">{</span><span class="n">result</span><span class="p">[</span><span class="s1">'scores'</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 </pre></div>
-<div class="clipboard-copy-txt" id="cell-5">import torch
-from executorch.runtime import Runtime
+<div class="clipboard-copy-txt" id="cell-5">import coremltools as ct
+import numpy as np
+import torch
 
 from rfdetr.export.benchmark import infer_transforms, post_process
 
@@ -3485,10 +3392,15 @@ CONFIDENCE_THRESHOLD = 0.5
 
 resolution = model.model_config.resolution
 image_tensor, _ = infer_transforms((resolution, resolution))(image, None)
-pixel_values = image_tensor[None].float().contiguous()
+pixel_values = image_tensor[None].numpy()
 
-method = Runtime.get().load_program(str(pte_path)).load_method("forward")
-dets, labels = method.execute([pixel_values])
+mlmodel = ct.models.MLModel(str(mlpackage_path))
+spec = mlmodel.get_spec()
+input_name = spec.description.input[0].name
+output_names = [o.name for o in spec.description.output]
+
+prediction = mlmodel.predict({input_name: pixel_values})
+dets, labels = (torch.from_numpy(np.asarray(prediction[name], dtype=np.float32)) for name in output_names[:2])
 
 target_sizes = torch.tensor([[image.height, image.width]])
 result = post_process({"dets": dets, "labels": labels}, target_sizes)[0]
@@ -3499,13 +3411,13 @@ print(f"Top score: {result['scores'][0]:.3f}")</div>
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=5ed15cee">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=e8265e69">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="7-visualize-with-supervision">7. Visualize with supervision<a class="anchor-link" href="#7-visualize-with-supervision">¶</a></h2><p><code>post_process</code> returns boxes in absolute <code>xyxy</code> pixel coordinates along with scores and COCO class ids.
+<h2 id="6-visualize-with-supervision">6. Visualize with supervision<a class="anchor-link" href="#6-visualize-with-supervision">¶</a></h2><p><code>post_process</code> returns boxes in absolute <code>xyxy</code> pixel coordinates along with scores and COCO class ids.
 Filter by confidence, wrap the result in a <code>supervision.Detections</code>, and annotate the original image.</p>
 <p>Annotate the <strong>PIL image</strong> rather than <code>np.array(image)</code>. supervision's annotators accept either, but a
 numpy scene is assumed to be OpenCV-style BGR — handing them an RGB array swaps the red and blue channels
@@ -3515,7 +3427,7 @@ in both directions and keeps the colours right.</p>
 </div>
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
-<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=4d06788c">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=35702116">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -3554,7 +3466,7 @@ in both directions and keeps the colours right.</p>
     <span class="n">scene</span><span class="o">=</span><span class="n">annotated</span><span class="p">,</span> <span class="n">detections</span><span class="o">=</span><span class="n">detections</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="n">annotation_labels</span>
 <span class="p">)</span>
 
-<span class="n">OUTPUT_PATH</span> <span class="o">=</span> <span class="n">EXPORT_DIR</span> <span class="o">/</span> <span class="s2">"annotated_executorch.jpg"</span>
+<span class="n">OUTPUT_PATH</span> <span class="o">=</span> <span class="n">EXPORT_DIR</span> <span class="o">/</span> <span class="s2">"annotated_coreml.jpg"</span>
 <span class="n">annotated</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">OUTPUT_PATH</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Saved annotated image: </span><span class="si">{</span><span class="n">OUTPUT_PATH</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 <span class="n">sv</span><span class="o">.</span><span class="n">plot_image</span><span class="p">(</span><span class="n">annotated</span><span class="p">)</span>
@@ -3580,7 +3492,7 @@ annotated = sv.LabelAnnotator(text_scale=0.6, text_thickness=1, text_padding=4).
     scene=annotated, detections=detections, labels=annotation_labels
 )
 
-OUTPUT_PATH = EXPORT_DIR / "annotated_executorch.jpg"
+OUTPUT_PATH = EXPORT_DIR / "annotated_coreml.jpg"
 annotated.save(OUTPUT_PATH)
 print(f"Saved annotated image: {OUTPUT_PATH}")
 sv.plot_image(annotated)</div>
@@ -3590,18 +3502,21 @@ sv.plot_image(annotated)</div>
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=85646c62">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=bb085a15">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h2 id="next-steps">Next steps<a class="anchor-link" href="#next-steps">¶</a></h2><ul>
-<li><strong>Deploy on-device</strong> — copy the <code>.pte</code> to your Android / iOS / edge app and run it with the ExecuTorch
-runtime for that platform. See the <a href="https://pytorch.org/executorch/">ExecuTorch docs</a>.</li>
+<li><strong>Deploy in Xcode</strong> — drag <code>rfdetr-small.mlpackage</code> into your Xcode project and load it with the
+<code>Vision</code> or <code>CoreML</code> framework for on-device iOS / macOS inference.</li>
 <li><strong>Fine-tuned weights</strong> — pass <code>pretrain_weights="&lt;path/to/checkpoint.pth&gt;"</code> when constructing the model.</li>
-<li><strong>Other runtimes</strong> — see the <a href="export-tensorrt/">TensorRT cookbook</a> (NVIDIA GPU) or
-<a href="https://github.com/roboflow/inference/tree/main/inference_models"><code>inference-models</code></a> (PyTorch / ONNX / TensorRT).</li>
+<li><strong>Smaller bundle</strong> — pass <code>coreml_precision="float16"</code> to <code>export()</code> for an ANE-oriented build (expect
+larger numeric drift from the fp32 PyTorch baseline).</li>
+<li><strong>On-device via ExecuTorch instead</strong> — see the <a href="../export-executorch/">ExecuTorch cookbook</a> for the
+<code>format="executorch", backend="coreml"</code> path, which produces a <code>.pte</code> for the ExecuTorch runtime rather
+than a native <code>.mlpackage</code>.</li>
 <li>See the <a href="https://rfdetr.roboflow.com/learn/export/">Export documentation</a> for all formats and options.</li>
 </ul>
 </div>
@@ -3635,7 +3550,7 @@ runtime for that platform. See the <a href="https://pytorch.org/executorch/">Exe
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_datetime" title="July 27, 2026 13:06:18 UTC">2026-07-27 13:06:18</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_datetime" title="July 28, 2026 18:51:45 UTC">2026-07-28 18:51:45</span>
   </span>
 
     
