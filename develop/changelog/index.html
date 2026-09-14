@@ -1223,9 +1223,25 @@ APIs described here may change or may never ship in a release, so use the <a hre
   
   
   
-    <li class="md-nav__item">
-      <a href="../learn/export/" class="md-nav__link">
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
         
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_4" id="__nav_2_4_label" tabindex="0">
+            
   
   
   <span class="md-ellipsis">
@@ -1239,7 +1255,79 @@ APIs described here may change or may never ship in a release, so use the <a hre
   
   
 
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Export Model
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../learn/export/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
       </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../learn/export-blueprint/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Exporter Blueprint
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
     </li>
   
 
@@ -2407,6 +2495,12 @@ APIs described here may change or may never ship in a release, so use the <a hre
 <li>
 <p>Renamed the optional installation extra from <code>webdataset</code> to <code>data</code>, without a compatibility alias. Use <code>pip install "rfdetr[data]"</code>; <code>dataset_file="webdataset"</code> is unchanged.</p>
 </li>
+<li>
+<p>Restructured the export internals into one <code>Exporter</code> class per format, each built from its own configuration dataclass and reached through a registry that maps a format name to the module defining it. <code>RFDETR.export()</code> is unchanged — same signature, same accepted formats, same return value — but the modules behind it moved: <code>rfdetr.export.main</code> (including <code>main()</code> and <code>make_infer_image</code>, now <code>rfdetr.export.prepare.make_infer_image</code>) and <code>rfdetr.export.protocols.ExporterProtocol</code> (now <code>rfdetr.export.base.Exporter</code>) are removed, the per-format <code>export_onnx</code>/<code>export_openvino</code>/<code>export_coreml</code>/<code>export_executorch</code>/<code>export_tflite</code> functions are replaced by <code>OnnxExporter</code>/<code>OpenVINOExporter</code>/<code>CoreMLExporter</code>/<code>ExecuTorchExporter</code>/<code>TFLiteExporter</code>, <code>rfdetr.export._tensorrt.build_engine</code> becomes <code>TensorRTExporter.build_engine</code> in <code>rfdetr.export._tensorrt.exporter</code>, and <code>rfdetr.export.benchmark.TRTInference</code> moves to <code>rfdetr.export._tensorrt.inference</code>. Every removed path except <code>rfdetr.export.main</code> and <code>rfdetr.export.protocols</code> already carried a leading underscore and no stability guarantee. The format-independent graph preparation every format shared now runs once in <code>rfdetr.export.prepare</code>, and requesting a capability a format lacks — <code>dynamic_batch</code> on CoreML, ExecuTorch or OpenVINO — is refused from the registry's own data before that format's optional dependency is imported, rather than after paying for it. The contract each format implements, and the steps a new one takes, are documented in the new Exporter Blueprint page under Export Model in the docs.</p>
+</li>
+<li>
+<p><code>RFDETR.export(format="tensorrt", backbone_only=True, output_name=...)</code> now writes <code>{output_name}-backbone.trt</code> instead of <code>{output_name}.trt</code>, matching every other format and what <code>export()</code>'s own documentation already described. Without the marker a backbone engine silently overwrote a full-detector engine exported under the same name; scripts that rebuilt the engine path from <code>output_name</code> need the suffix added.</p>
+</li>
 </ul>
 <hr />
 <h2 id="1101-2026-09-07">[1.10.1] — 2026-09-07<a class="headerlink" href="#1101-2026-09-07" title="Permanent link">&para;</a></h2>
@@ -2443,7 +2537,7 @@ APIs described here may change or may never ship in a release, so use the <a hre
 <h3 id="changed_1">Changed<a class="headerlink" href="#changed_1" title="Permanent link">&para;</a></h3>
 <ul>
 <li>
-<p><strong>Detection and segmentation COCO evaluation now runs on <a href="https://github.com/derekallman/hotcoco">hotcoco</a> by default</strong> — a Rust COCO evaluator under MIT with <code>numpy</code> as its only runtime dependency, added to the <code>train</code> extra. Reported metrics do not change: the parity tests compare every aggregate, per-class and class-ID output of both backends for box-only and box-plus-mask evaluation and require exact equality, which they reach. Set <code>TrainConfig.eval_backend="faster_coco_eval"</code> to restore the previous evaluator, which remains installed and is still required — torchmetrics resolves its COCO helpers from a closed backend-name enum with no hotcoco member, so the adapter constructs it with the supported name and replaces the resolved modules. What changes is the cost of <code>compute()</code>, not the validation forward pass that usually dominates a validation epoch: on synthetic COCO-val-shaped state (5,000 images, 36.6k ground-truth boxes, 300 detections per image, 80 classes, <code>eval_max_dets=500</code>) one macOS-CPU <code>compute()</code> took 6.2 s before and 1.1 s after, measured against <code>hotcoco</code> 1.0.0. Most of that is not the evaluator: for box-only evaluation the prediction dataset is now handed to the backend as one detection array instead of the million-plus annotation dictionaries TorchMetrics materializes, which on that state builds in 0.4 s where the dictionary path the other backend still takes costs 1.8 s. Segmentation, the <code>faster_coco_eval</code> backend, and states without stored boxes keep the dictionary path. This is a single-machine CPU measurement on generated detections, not a trained-model or multi-hardware figure. Two hotcoco behaviors are silent wrong answers rather than errors and are handled in the adapter, each with a test that fails if the handling is dropped: its <code>dataset</code> getter returns a copy, so field-level mutation is discarded — which would leak one IoU type's annotation areas into the other's COCO size buckets, doubling <code>bbox_map_small</code> in the shipped regression fixture; and its own <code>mask.encode</code> emits RLE counts as bytes, which its own COCO constructor reads back as an empty mask, collapsing mask AP to <code>0.0</code> without raising. Installing hotcoco also puts a generically-named <code>coco</code> console script on <code>PATH</code>.</p>
+<p><strong>Detection and segmentation COCO evaluation now runs on <a href="https://github.com/derekallman/hotcoco">hotcoco</a> by default</strong> — a Rust COCO evaluator under MIT with <code>numpy</code> as its only runtime dependency, added to the <code>train</code> extra. Reported metrics do not change: the parity tests compare every aggregate, per-class and class-ID output of both backends for box-only and box-plus-mask evaluation and require exact equality, which they reach. Set <code>TrainConfig.eval_backend="faster_coco_eval"</code> to restore the previous evaluator, which remains installed and is still required — torchmetrics resolves its COCO helpers from a closed backend-name enum with no hotcoco member, so the adapter constructs it with the supported name and replaces the resolved modules. What changes is the cost of <code>compute()</code>, not the validation forward pass that usually dominates a validation epoch: on synthetic COCO-val-shaped state (5,000 images, 36.6k ground-truth boxes, 300 detections per image, 80 classes, <code>eval_max_dets=500</code>) one macOS-CPU <code>compute()</code> took 6.2 s before and 1.1 s after, measured against <code>hotcoco</code> 1.0.0. Most of that is not the evaluator: for box-only evaluation the prediction dataset is now handed to the backend as one detection array instead of the million-plus annotation dictionaries TorchMetrics materializes, which on that state builds in 0.4 s where the dictionary path the other backend still takes costs 1.8 s. Segmentation, the <code>faster_coco_eval</code> backend, and states without stored boxes keep the dictionary path. This is a single-machine CPU measurement on generated detections, not a trained-model or multi-hardware figure. One hotcoco behavior is a silent wrong answer rather than an error and is handled in the adapter, with a test that fails if the handling is dropped: its <code>dataset</code> getter returns a copy, so field-level mutation is discarded — which would leak one IoU type's annotation areas into the other's COCO size buckets, doubling <code>bbox_map_small</code> in the shipped regression fixture. Installing hotcoco also puts a generically-named <code>coco</code> console script on <code>PATH</code>.</p>
 </li>
 <li>
 <p><code>RFDETR.predict()</code> performance work, none of it changing detections: every entry measured byte-identical or checksum-identical against the previous path.</p>
