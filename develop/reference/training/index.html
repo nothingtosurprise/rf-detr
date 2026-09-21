@@ -6451,7 +6451,27 @@ https://github.com/Lightning-AI/pytorch-lightning/issues/19987).</p>
             </td>
             <td>
               <div class="doc-md-description">
-                <p>batches contain <code>PackedTargets</code> for losslessly packable target batches.</p>
+                <p>batches contain <code>PackedTargets</code> for losslessly packable target batches. With</p>
+              </div>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                  <code><span title="torch.utils.data.DataLoader">DataLoader</span>[<span title="typing.Any">Any</span>]</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p><code>TrainConfig.pad_targets_to</code> set, every target is padded to that row count before packing, so a</p>
+              </div>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                  <code><span title="torch.utils.data.DataLoader">DataLoader</span>[<span title="typing.Any">Any</span>]</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>batch always packs (every sample already shares one shape) and every packed shape is fixed too.</p>
               </div>
             </td>
           </tr>
@@ -6583,8 +6603,8 @@ https://github.com/Lightning-AI/pytorch-lightning/issues/19987).</p>
     <div class="doc doc-contents first">
 
         <p>Assemble a PTL <code>Trainer</code> with the full RF-DETR callback and logger stack.</p>
-<p>Resolves training precision from <code>model_config.amp</code> and device capability, guards EMA against sharded strategies,
-wires conditional loggers, and applies promoted training knobs (sync_batchnorm, strategy).</p>
+<p>Resolves training precision from <code>train_config.amp_dtype</code> and device capability, guards EMA against sharded
+strategies, wires conditional loggers, and applies promoted training knobs (sync_batchnorm, strategy).</p>
 
 
 <p><span class="doc-section-title">Parameters:</span></p>
@@ -6607,7 +6627,8 @@ wires conditional loggers, and applies promoted training knobs (sync_batchnorm, 
             </td>
             <td>
               <div class="doc-md-description">
-                <p>Training hyperparameter configuration.</p>
+                <p>Training hyperparameter configuration. <code>amp_dtype</code> is the authority for
+precision resolution.</p>
               </div>
             </td>
             <td>
@@ -6623,9 +6644,9 @@ wires conditional loggers, and applies promoted training knobs (sync_batchnorm, 
             </td>
             <td>
               <div class="doc-md-description">
-                <p>Architecture configuration. Used for precision resolution
-(<code>model_config.amp</code>) and to guard against unsupported distributed
-configurations for keypoint models.</p>
+                <p>Architecture configuration. Read for the deprecated <code>amp</code> toggle (a fallback
+only when <code>amp_dtype</code> is left at its default) and to guard against unsupported
+distributed configurations for keypoint models.</p>
               </div>
             </td>
             <td>
@@ -7661,18 +7682,20 @@ forward pass, so both models are evaluated from independent predictions.</p>
 <h2 id="rfdetr.training.callbacks.coco_eval.COCOEvalCallback(eval_backend)" class="doc doc-heading doc-heading-parameter">                  <code>eval_backend</code>
 <a href="#rfdetr.training.callbacks.coco_eval.COCOEvalCallback(eval_backend)" class="headerlink" title="Permanent link">&para;</a></h2>            </td>
             <td>
-                  <code><span title="typing.Literal">Literal</span>[&#39;hotcoco&#39;, &#39;faster_coco_eval&#39;]</code>
+                  <code><span title="rfdetr.config.CocoEvalBackend">CocoEvalBackend</span></code>
             </td>
             <td>
               <div class="doc-md-description">
-                <p>COCO evaluation backend, mirroring :attr:<code>~rfdetr.config.TrainConfig.eval_backend</code>. Both
-backends return identical metrics; <code>"hotcoco"</code> is the faster default and <code>"faster_coco_eval"</code> is
-the previous evaluator. Appended after the existing parameters rather than grouped with the other
-evaluation knobs, so that positional callers keep binding the arguments they always did.</p>
+                <p>COCO evaluation backend, mirroring :attr:<code>~rfdetr.config.TrainConfig.eval_backend</code>.
+<code>"vernier"</code> is the default and computes fastest, <code>"faster_coco_eval"</code> is the previous
+evaluator and <code>"ufcoco"</code> selects ultrafast-pycocotools; all four ship with <code>rfdetr[train]</code> and return
+identical metrics.
+Appended after the existing parameters rather than grouped with the other evaluation knobs, so that
+positional callers keep binding the arguments they always did.</p>
               </div>
             </td>
             <td>
-                  <code>&#39;hotcoco&#39;</code>
+                  <code>&#39;vernier&#39;</code>
             </td>
           </tr>
       </tbody>
@@ -7701,7 +7724,7 @@ evaluation knobs, so that positional callers keep binding the arguments they alw
 
 
 <h3 id="rfdetr.training.callbacks.coco_eval.COCOEvalCallback.__init__" class="doc doc-heading">
-<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>            <code class="highlight language-python"><span class="fm">__init__</span><span class="p">(</span><span class="n">max_dets</span><span class="o">=</span><span class="n">DEFAULT_KEYPOINT_MAX_DETS</span><span class="p">,</span> <span class="n">segmentation</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">eval_interval</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">log_per_class_metrics</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">keypoint_oks_sigmas</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">in_notebook</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">eval_ema_only</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">eval_base_model</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">eval_backend</span><span class="o">=</span><span class="s1">'hotcoco'</span><span class="p">)</span></code>
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>            <code class="highlight language-python"><span class="fm">__init__</span><span class="p">(</span><span class="n">max_dets</span><span class="o">=</span><span class="n">DEFAULT_KEYPOINT_MAX_DETS</span><span class="p">,</span> <span class="n">segmentation</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">eval_interval</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">log_per_class_metrics</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">keypoint_oks_sigmas</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">in_notebook</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">eval_ema_only</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">eval_base_model</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">eval_backend</span><span class="o">=</span><span class="s1">'vernier'</span><span class="p">)</span></code>
 
 <a href="#rfdetr.training.callbacks.coco_eval.COCOEvalCallback.__init__" class="headerlink" title="Permanent link">&para;</a></h3>
 
